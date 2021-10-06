@@ -36,6 +36,10 @@ output = 0x3E;
 output = 0x3F;
 }
 
+//can keep all the code, just need to add a little bit condition
+    if(((tmpA&0x10)==0x10)||((tmpA&0x20)==0x20)||(((tmpA&0x40)>>6)==0x00)){
+    output = (output | 0x80);
+    }
 PORTC = output;
     }
     return 1;
