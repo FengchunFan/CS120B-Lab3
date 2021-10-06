@@ -12,8 +12,8 @@ unsigned char tmpA = 0x00;
 unsigned char output = 0x00;
     /* Insert your solution below */
     while (1) {
-        output = 0x00;
 tmpA = PINA;
+        output = 0x00;
     if((tmpA&0x00)==0x00){
 output = 0x40;
 }else if(((tmpA&0x01)==0x01) || ((tmpA&0x02)==0x02)){
