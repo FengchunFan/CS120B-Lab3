@@ -14,7 +14,12 @@ unsigned char tmpB = 0x00;
 unsigned char tmpC = 0x00;
     /* Insert your solution below */
     while (1) {
-    
+    tmpA = PINA;
+    tmpB = (tmpA >> 4) & 0x0F;
+    tmpC = (tmpA << 4) & 0xF0;
+        
+    PORTB = tmpB;
+    PORTC = tmpC;
     }   
     return 1;
 }
