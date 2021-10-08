@@ -15,10 +15,16 @@
 
 int main(void) {
 DDRD = 0x00; PORTD = 0xFF; //first set D as input
-DDRB = 0xFF; PORTB = 0x00; //we want PB0 as input, but PB1 and PB2 as output
- 
+DDRB = 0xFE; PORTB = 0x00; //we want PB0 as input, but PB1 and PB2 as output
+
+unsigned char tmpD = 0x00;
+unsigned char tmpB = 0x00;
+unsigned char output = 0x00;
+unsigned short weight = 0;
 while(1){
-  break;
+  tmpD = PIND;
+  tmpB = PINB;
+  weight = (tmpD << 1) | (tmpB & 0x01);
 }
      return 1;
 }
