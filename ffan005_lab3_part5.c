@@ -20,11 +20,21 @@ DDRB = 0xFE; PORTB = 0x00; //we want PB0 as input, but PB1 and PB2 as output
 unsigned char tmpD = 0x00;
 unsigned char tmpB = 0x00;
 unsigned char output = 0x00;
-unsigned short weight = 0;
+unsigned short weight = 0; //since weight is designed to be 9 bit
 while(1){
   tmpD = PIND;
   tmpB = PINB;
   weight = (tmpD << 1) | (tmpB & 0x01);
+ 
+  if(weight >= 70){
+   output = 0x02;
+  } else if (weight > 5 && weight < 70){
+   output = 0x04;
+  } else if (weight <= 5){
+   output = 0x00;
+  }
+ 
+ PORTB = output;
 }
      return 1;
 }
