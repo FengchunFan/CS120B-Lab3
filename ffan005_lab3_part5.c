@@ -14,6 +14,11 @@
 #endif
 
 int main(void) {
-  
+DDRD = 0x00; PORTD = 0xFF; //first set D as input
+DDRB = 0xFF; PORTB = 0x00; //we want PB0 as input, but PB1 and PB2 as output
+ 
+while(1){
+  break;
+}
      return 1;
 }
